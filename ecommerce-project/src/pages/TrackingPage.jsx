@@ -1,8 +1,9 @@
-import "./header.css";
+import { Header } from "../header/header";
 import "./TrackingPage.css";
 export function TrackingPage() {
   return (
     <>
+      <Header />
       <title>Order Tracking</title>
       <div className="header">
         <div className="left-section">
