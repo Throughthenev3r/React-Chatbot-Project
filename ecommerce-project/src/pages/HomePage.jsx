@@ -1,12 +1,21 @@
 import axios from "axios";
+import { useState, useEffect } from "react";
 import { Header } from "../header/header";
-import { products } from "../../starting-code/data/products";
 import "./HomePage.css";
 
 export function HomePage() {
-  axios.get("http://localhost:3000/api/products").then((response) => {
-    console.log(response.data);
-  });
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    // Fetch products from the API
+    axios
+      .get("http://localhost:3000/api/products")
+      .then((response) => {
+        setProducts(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+      });
+  }, []);
 
   return (
     <>
